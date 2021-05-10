@@ -45,6 +45,7 @@
    </div>
 
    <div class="card-group">
+      {% for destination in destinations %}
       <div class="card mx-3">
          <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/0e/9c/a0/02/eiffel-tower.jpg"
             alt="France">
@@ -54,27 +55,10 @@
             </p>
          </div>
          <div class="card-footer"><small class="text-muted">Last updated 3 mins ago</small></div>
-      </div>
-      <div class="card mx-3">
-         <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/12/44/87/23/london.jpg"
-            alt="United Kingdom">
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-            </p>
+         <div> <a href="{{url_for('destination.show', id=destination.id)}}"  class="btn btn-danger">View Details</a>
          </div>
-         <div class="card-footer"><small class="text-muted">Last updated 3 mins ago</small></div>
       </div>
-      <div class="card mx-3">
-         <img class="card-img-top" src="https://media-cdn.tripadvisor.com/media/photo-s/12/44/6e/a0/rome.jpg"
-            alt="Italy">
-         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-            </p>
-         </div>
-         <div class="card-footer"><small class="text-muted">Last updated 3 mins ago</small></div>
-      </div>
+      (% endfor %)
    </div>
 </div>
 {% endblock %}

@@ -12,6 +12,9 @@ def home():
     #     message = '<h1>HELLO</h1>'
     # return message
 
+def index(): 
+    destinations = Destination.query.all()
+    return render_template('index.html', destinations=destinations)
 
 
 @mainbp.route('/logout')
