@@ -1,8 +1,9 @@
 from . import db
 from datetime import datetime
+from flask_login import UserMixin
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__='users' # good practice to specify table name
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True, unique=True, nullable=False)
@@ -26,7 +27,7 @@ class Destination(db.Model):
     # ... Create the Comments db.relationship
 	# relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='destination')
-    
+
     def __repr__(self): #string print method
         return "<Name: {}>".format(self.name)
 
