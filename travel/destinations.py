@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from flask_login import login_required, current_user
 from .models import Destination, Comment
 from .forms import DestinationForm, CommentForm
 
@@ -10,8 +11,11 @@ def show(id):
     commentForm = CommentForm()
     return render_template('destinations/show.html', destination=destination, form=commentForm)
 
-@bp.route('/create', methods=['GET', 'POST'])
+@bp.route('/create', methods=['GET', 'POST']) 
+@login_required
 def create():
+    comment = Comment(text=form.text.data,
+    destination=destination_obj, user=current_user)
     print("Method type: ", request.method)
     form = DestinationForm()
 
