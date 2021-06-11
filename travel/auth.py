@@ -49,13 +49,13 @@ def register():
             flash('User name already exists, please login')
             return redirect(url_for('auth.login'))
             # don't store the password - create password hash
-            pwd_hash = generate_password_hash(pwd)
+        pwd_hash = generate_password_hash(pwd)
             # create a new user model object
-            new_user = User(name=uname, password_hash=pwd_hash, emailid=email)
-            db.session.add(new_user)
-            db.session.commit()
+        new_user = User(name=uname, password_hash=pwd_hash, emailid=email)
+        db.session.add(new_user)
+        db.session.commit()
             # commit to the database and redirect to HTML page
-            return redirect(url_for('main.home'))
+        return redirect(url_for('main.home'))
     # the else is called when there is a get message
     else:
         return render_template('user.html', form=register, heading='Register')

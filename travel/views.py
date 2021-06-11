@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
+from .models import Destination
 
 mainbp = Blueprint('main', __name__)
 
@@ -27,7 +28,7 @@ def search():
 # render index.html with few destinations
         return render_template('index.html', destinations=destinations)
     else:
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.home'))
 
 
 @mainbp.route('/logout')

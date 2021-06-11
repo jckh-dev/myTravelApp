@@ -49,7 +49,7 @@
     </div>
 
     <div>        
-        {{wtf.quick_form(form, "/destinations/{0}/comment".format(1))}}
+        {{wtf.quick_form(form, "/destinations/{0}/comment".format(destination.id))}}
     </div>
 
     {% for comment in destination.comments %}
